@@ -329,7 +329,7 @@ export default function MuscleNationFitness() {
                   <Phone className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-bold text-red-600 mb-2">PHONE</h4>
-                    <p className="text-gray-300">+91 8080229273</p>
+                    <p className="text-gray-300">+91 9503363863</p>
                   </div>
                 </div>
               </div>
