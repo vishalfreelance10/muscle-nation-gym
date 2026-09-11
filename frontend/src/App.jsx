@@ -36,24 +36,23 @@ export default function MuscleNationFitness() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
-      if (response.ok) {
-        setSubmitted(true);
-        setFormData({ name: '', email: '', phone: '', message: '' });
-        setTimeout(() => setSubmitted(false), 3000);
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    }
+
+    const message =
+      `New Contact Form Submission%0A%0A` +
+      `Name: ${formData.name}%0A` +
+      `Email: ${formData.email}%0A` +
+      `Phone: ${formData.phone}%0A` +
+      `Message: ${formData.message}`;
+
+    const whatsappURL = `https://wa.me/919503363863?text=${message}`;
+
+    window.open(whatsappURL, '_blank');
+
+    setSubmitted(true);
+    setFormData({ name: '', email: '', phone: '', message: '' });
+    setTimeout(() => setSubmitted(false), 3000);
   };
 
   const whatsappClick = () => {
@@ -72,7 +71,7 @@ export default function MuscleNationFitness() {
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 p-4 rounded-full shadow-lg z-50 transition"
       >
         <svg className="w-6 h-6" fill="white" viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.746 1.14l-.33.165-3.425.342 .348 3.36.177.339a9.9 9.9 0 001.441 4.694 10.017 10.017 0 004.833 3.265l.331.078 3.515-.352.339-.177c1.538-.76 2.888-1.838 3.900-3.148l.261-.338-.001-3.701c-.001-.495-.053-.987-.156-1.467-.105-.49-.257-.975-.457-1.439l-.03-.061L12.05 6.98z" />
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.92L2 22l5.29-1.38c1.41.75 3.03 1.18 4.75 1.18h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm0 18.15h-.01c-1.51 0-2.99-.4-4.29-1.16l-.31-.18-3.15.82.84-3.07-.2-.32c-.83-1.32-1.27-2.85-1.27-4.42 0-4.59 3.74-8.33 8.33-8.33 2.22 0 4.32.87 5.89 2.44a8.28 8.28 0 012.44 5.89c0 4.6-3.74 8.33-8.27 8.33zm4.56-6.24c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.79.98-.14.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.42.06-.65.31-.22.25-.85.83-.85 2.03 0 1.2.87 2.35.99 2.51.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.15.2-.57.2-1.05.14-1.15-.06-.11-.22-.17-.47-.29z" />
         </svg>
       </button>
 
@@ -330,22 +329,23 @@ export default function MuscleNationFitness() {
                   <Phone className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-bold text-red-600 mb-2">PHONE</h4>
-                    <p className="text-gray-300">+91 9503363863</p>
+                    <p className="text-gray-300">+91 8080229273</p>
                   </div>
                 </div>
               </div>
 
+
+              {/* Google Maps Embed */}
               {/* Google Maps Embed */}
               <div className="rounded-2xl overflow-hidden h-80">
                 <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.4823443351065!2d73.8066984751924!3d18.552280582547436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf75b7648adb%3A0xe41df9577e7916ad!2sMuscle%20Nation%20Fitness!5e0!3m2!1sen!2sin!4v1789122220629!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
-                  frameBorder="0"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.8459141288607!2d73.8197!3d18.5644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c6b5d5d5d5d5%3A0x5d5d5d5d5d5d5d5d!2sAundh%2C%20Pune!5e0!3m2!1sen!2sin!4v1234567890"
+                  style={{ border: 0 }}
                   allowFullScreen=""
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-
+                  referrerPolicy="strict-origin-when-cross-origin"
                 ></iframe>
               </div>
             </div>
